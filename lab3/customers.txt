@@ -1,0 +1,6 @@
+cust_id,acc_bal,acc_type
+C12,1500,Z
+C23,500,Z
+C12,500,S
+C23,700,S
+C34,1000,Z

@@ -1,0 +1,5 @@
+name,rollno,age,contactno,emailid
+FEM,11,19,9876543210,abc@gmail.com
+PQR,20,19,9876541230,pqr@gmail.com
+XYZ,40,20,8976541320,xyz@gmail.com
+GHI,10,20,8954541320,ghi@gmail.com

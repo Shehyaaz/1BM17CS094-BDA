@@ -1,0 +1,3 @@
+cust_id
+acc_bal
+acc_type
