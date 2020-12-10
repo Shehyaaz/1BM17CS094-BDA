@@ -1,0 +1,25 @@
+### Commands to execute lab8 - Average Map Reduce program ###
+su hduser
+sudo cp -r /home/shehyaaz/Documents/Average /home/hduser/lab8
+sudo cp /home/shehyaaz/Documents/1901-input.txt /home/hduser/lab8
+cd /home/hduser/lab8
+# create MANIFEST.MF file with contents : Main-Class : AverageDriver
+sudo nano MANIFEST.MF
+sudo javac -classpath $(hadoop classpath) -d . *.java
+sudo jar cvf average.jar *.class
+jar -tf average.jar
+cd /usr/local/hadoop/sbin/
+./start-dfs.sh
+./start-yarn.sh
+jps
+cd ~
+hadoop fs -ls /
+hadoop fs -mkdir /rgs2
+hadoop fs -copyFromLocal /home/hduser/lab8/1901-input.txt /rgs2/1901-input.txt
+hadoop fs -ls /rgs2
+## executing the program ##
+hadoop jar /home/hduser/lab8/average.jar AverageDriver /rgs2/1901-input.txt /rgs2/output/
+hadoop fs -ls /rgs2/output
+hadoop fs -cat /rgs2/output/part-r-00000
+hadoop fs -copyToLocal /rgs2/output/part-r-00000 $HOME/average-output.txt
+/usr/local/hadoop/sbin/stop-all.sh
